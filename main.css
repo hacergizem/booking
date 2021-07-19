@@ -341,9 +341,11 @@ td {
   padding: 0; }
 
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px; }
 
 a {
   color: #083b87; }
@@ -362,6 +364,15 @@ body {
   color: white;
   font-weight: bold;
   border-radius: 3px; }
+  .button-icon {
+    justify-content: center;
+    color: black;
+    padding-left: 0;
+    padding-right: 0;
+    width: 40px; }
+  .button-blue {
+    color: white;
+    background-color: #01acee; }
 
 .icon {
   display: inline-block;
@@ -372,32 +383,92 @@ body {
   fill: currentColor; }
 
 .Header {
-  border: 1px solid #ddd; }
+  border: 1px solid #ddd;
+  height: 68px; }
   .Header .container {
+    position: relative;
     display: flex;
     align-items: center;
     padding-top: 20px;
     padding-bottom: 20px;
-    height: 64px; }
+    height: 100%; }
   .Header-logo img {
     width: 144px; }
-  .Header-menu {
+  .Header-switch {
+    position: relative;
+    left: 10px;
     margin-left: auto;
-    display: flex; }
+    /* Medium devices (desktops, 768px and up) */ }
+    @media (min-width: 768px) {
+      .Header-switch {
+        display: none; } }
+  .Header-menu {
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.5s;
+    position: absolute;
+    display: flex;
+    left: 0;
+    right: 0;
+    top: 100%;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+    /* Medium devices (desktops, 768px and up) */ }
+    .Header.menu-show .Header-menu {
+      pointer-events: auto;
+      opacity: 1; }
+    @media (min-width: 768px) {
+      .Header-menu {
+        opacity: 1;
+        transform: translateY(0);
+        transition: 0s;
+        margin-left: auto;
+        flex-direction: row;
+        position: static;
+        box-shadow: none;
+        background-color: transparent;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0; } }
     .Header-menu-user {
       margin-right: 10px;
-      display: flex; }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* Medium devices (desktops, 768px and up) */ }
+      @media (min-width: 768px) {
+        .Header-menu-user {
+          flex-direction: row; } }
       .Header-menu-user a {
+        width: 100%;
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         height: 40px;
         padding-left: 20px;
         padding-right: 20px; }
         .Header-menu-user a:hover {
           background-color: #ddd; }
+    .Header-menu-property {
+      margin-top: 20px;
+      justify-content: center;
+      /* Medium devices (desktops, 768px and up) */ }
+      @media (min-width: 768px) {
+        .Header-menu-property {
+          margin-top: 0; } }
     .Header-menu-helper {
-      margin-left: 20px;
-      display: flex; }
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      /* Medium devices (desktops, 768px and up) */ }
+      @media (min-width: 768px) {
+        .Header-menu-helper {
+          margin-left: 20px;
+          margin-top: 0; } }
       .Header-menu-helper select {
         -webkit-appearance: none;
            -moz-appearance: none;
@@ -415,3 +486,33 @@ body {
           border-left-width: 0;
           border-bottom-right-radius: 3px;
           border-top-right-radius: 3px; }
+
+.Navigation {
+  background-color: #f1f6ff;
+  height: 50px; }
+  .Navigation .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll; }
+  .Navigation-item {
+    margin-right: 10px;
+    font-size: 0.9em; }
+
+.Showcase {
+  text-align: center;
+  color: white;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #083b87; }
+
+.Search {
+  background-color: #FBBE00;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); }
+  .Search-form {
+    display: flex;
+    position: relative; }
+  .Search .asd {
+    position: absolute;
+    right: 0; }

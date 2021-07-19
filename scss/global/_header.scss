@@ -1,27 +1,78 @@
 .Header{
     border: 1px solid #ddd;
+    height: 68px;
 
     .container{
+        position: relative;
         display: flex;
         align-items: center;
         padding-top: 20px;
         padding-bottom: 20px;
-        height: 64px;
+        height: 100%;
+        
     }
     &-logo{
         img { width: 144px;}
     }
+    &-switch{
+    position: relative;
+    left: 10px;
+    margin-left: auto;
+      @include mq("tablet"){
+          display: none;
+      }      
+    }
     &-menu{
-        margin-left: auto;
+        pointer-events: none;
+        opacity: 0;
+        //transform: translateX(100%);
+        transition: 0.5s;
+        position: absolute;
         display: flex;
+        left:0;
+        right:0;
+        top:100%;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        flex-direction: column;
+        background-color: white;
+        box-shadow: 0 20px 20px rgba(black, .2);
+        
+        .Header.menu-show & {
+            pointer-events: auto;
+            opacity: 1;
+            //transform: translateX(0);
+        }
+
+        @include mq("tablet"){
+            opacity: 1;
+            transform: translateY(0);
+            transition: 0s;
+            margin-left: auto;
+            flex-direction: row;
+            position: static;  
+            box-shadow: none;
+            background-color: transparent;       
+            padding-left: 0;
+            padding-right: 0;
+            padding-bottom: 0;
+        }
 
         &-user{
             margin-right: 10px;
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            @include mq("tablet"){
+                flex-direction: row;
+            }         
 
             a{
+                width: 100%;
                 display: inline-flex;
                 align-items: center;
+                justify-content: center;
                 height: $finger-size; // inline elementler yüksekliği algılayamaz.
                 padding-left: 20px;
                 padding-right: 20px;
@@ -32,9 +83,23 @@
             }
         }
 
-        &-helper{
-            margin-left: 20px;
+        &-property{
+            margin-top: 20px;
+            justify-content: center;
+            @include mq("tablet"){
+                margin-top: 0;
+            }
+        }
+
+        &-helper{     
+            margin-top: 20px;       
             display: flex;
+            justify-content: center;
+
+            @include mq("tablet"){
+                margin-left: 20px;
+                margin-top: 0;
+            }
             
             select{
                 appearance: none;

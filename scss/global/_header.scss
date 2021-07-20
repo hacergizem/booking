@@ -1,5 +1,6 @@
+$header-height:68px;
+
 .Header{
-    border: 1px solid #ddd;
     height: 68px;
 
     .container{
@@ -27,11 +28,11 @@
         opacity: 0;
         //transform: translateX(100%);
         transition: 0.5s;
-        position: absolute;
+        position: fixed;
         display: flex;
         left:0;
         right:0;
-        top:100%;
+        top:$header-height;
         padding-bottom: 20px;
         padding-left: 20px;
         padding-right: 20px;
@@ -47,6 +48,7 @@
 
         @include mq("tablet"){
             opacity: 1;
+            pointer-events: auto;
             transform: translateY(0);
             transition: 0s;
             margin-left: auto;

@@ -340,6 +340,13 @@ table {
 td {
   padding: 0; }
 
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.4; }
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2; }
+
 .container {
   max-width: 1100px;
   margin-left: auto;
@@ -354,26 +361,6 @@ body {
   font-size: 16px;
   font-family: "Open Sans", sans-serif; }
 
-.button {
-  display: inline-flex;
-  align-items: center;
-  height: 40px;
-  padding-left: 20px;
-  padding-right: 20px;
-  background-color: #01acee;
-  color: white;
-  font-weight: bold;
-  border-radius: 3px; }
-  .button-icon {
-    justify-content: center;
-    color: black;
-    padding-left: 0;
-    padding-right: 0;
-    width: 40px; }
-  .button-blue {
-    color: white;
-    background-color: #01acee; }
-
 .icon {
   display: inline-block;
   width: 1em;
@@ -382,8 +369,113 @@ body {
   stroke: currentColor;
   fill: currentColor; }
 
+.button {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #01acee;
+  color: white;
+  justify-content: center;
+  text-align: center; }
+  .button-icon {
+    justify-content: center;
+    color: black;
+    padding-left: 0;
+    padding-right: 0;
+    width: 40px;
+    background-color: transparent; }
+  .button-full {
+    width: 100%;
+    text-align: center; }
+  .button-navy {
+    color: white;
+    background-color: #083b87; }
+
+.select, .button, .text {
+  font-family: inherit;
+  border: 0;
+  font-weight: bold;
+  border-radius: 3px;
+  height: 40px; }
+
+.text {
+  min-height: 40px;
+  color: #083b87;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%; }
+  .text::-moz-placeholder-shown {
+    background-color: #083b87; }
+  .text:-ms-input-placeholder-shown {
+    background-color: #083b87; }
+  .text::placeholder-shown {
+    background-color: #083b87; }
+
+.select {
+  background-color: white;
+  display: inline-block;
+  width: 100%;
+  padding-left: 40px;
+  color: #083b87; }
+
+.form-item {
+  position: relative; }
+  .form-item .icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    color: #083b87;
+    transform: translateY(-50%); }
+  .form-item .text {
+    padding-left: 40px; }
+  .form-item .select {
+    padding-left: 40px; }
+
+.form-description {
+  margin-top: 5px;
+  font-size: 0.9em;
+  /* Medium devices (desktops, 768px and up) */ }
+  @media (min-width: 768px) {
+    .form-description {
+      margin-top: 20px; } }
+
+.form-checkbox {
+  display: flex;
+  align-items: center; }
+
+.checkbox {
+  position: relative;
+  display: flex; }
+  .checkbox input {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    pointer-events: none; }
+  .checkbox:before {
+    content: "";
+    font-size: 18px;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    border: 2px solid white; }
+  .checkbox .icon {
+    display: none;
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: 3px;
+    margin-top: -2px;
+    width: 20px;
+    height: 20px; }
+  .checkbox input:checked + .icon {
+    display: block; }
+
 .Header {
-  border: 1px solid #ddd;
   height: 68px; }
   .Header .container {
     position: relative;
@@ -406,11 +498,11 @@ body {
     pointer-events: none;
     opacity: 0;
     transition: 0.5s;
-    position: absolute;
+    position: fixed;
     display: flex;
     left: 0;
     right: 0;
-    top: 100%;
+    top: 68px;
     padding-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
@@ -424,6 +516,7 @@ body {
     @media (min-width: 768px) {
       .Header-menu {
         opacity: 1;
+        pointer-events: auto;
         transform: translateY(0);
         transition: 0s;
         margin-left: auto;
@@ -500,19 +593,74 @@ body {
     font-size: 0.9em; }
 
 .Showcase {
-  text-align: center;
   color: white;
-  padding-top: 100px;
-  padding-bottom: 100px;
-  background-color: #083b87; }
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background: url(/img/showcase_back.jpg) no-repeat center center/cover;
+  text-align: center;
+  /* Medium devices (desktops, 768px and up) */ }
+  @media (min-width: 768px) {
+    .Showcase {
+      padding-top: 80px;
+      padding-bottom: 100px; } }
+  .Showcase .container {
+    display: flex;
+    flex-direction: column; }
+  .Showcase-title {
+    /* Medium devices (desktops, 768px and up) */ }
+    @media (min-width: 768px) {
+      .Showcase-title {
+        font-size: 3em; } }
+  .Showcase-subtitle {
+    margin-top: 10px;
+    /* Medium devices (desktops, 768px and up) */ }
+    @media (min-width: 768px) {
+      .Showcase-subtitle {
+        font-size: 1.4em; } }
 
 .Search {
+  text-align: left;
+  margin-top: 30px;
   background-color: #FBBE00;
-  padding: 40px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); }
+  padding: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  /* Medium devices (desktops, 768px and up) */ }
+  @media (min-width: 768px) {
+    .Search {
+      padding: 50px 30px;
+      margin-top: 50px; } }
   .Search-form {
     display: flex;
-    position: relative; }
-  .Search .asd {
-    position: absolute;
-    right: 0; }
+    position: relative;
+    flex-direction: column;
+    /* Medium devices (desktops, 768px and up) */ }
+    @media (min-width: 768px) {
+      .Search-form {
+        flex-direction: row; } }
+    .Search-form-item {
+      width: 100%;
+      /* Medium devices (desktops, 768px and up) */ }
+      @media (min-width: 768px) {
+        .Search-form-item {
+          width: auto; } }
+      .Search-form-item + .Search-form-item {
+        margin-top: 20px;
+        /* Medium devices (desktops, 768px and up) */ }
+        @media (min-width: 768px) {
+          .Search-form-item + .Search-form-item {
+            flex-grow: 1;
+            margin-top: 0px;
+            margin-left: 10px; } }
+  .Search .for-work {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    /* Medium devices (desktops, 768px and up) */ }
+    @media (min-width: 768px) {
+      .Search .for-work {
+        position: absolute;
+        top: calc(40px + 20px);
+        right: 0; } }
+    .Search .for-work .checkbox {
+      margin-left: 10px; }

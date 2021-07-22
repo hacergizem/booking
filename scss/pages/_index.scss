@@ -7,7 +7,7 @@
 
   @include mq("tablet") {
     padding-top: 80px;
-    padding-bottom: 100px;
+    padding-bottom: 80px;
   }
 
   .container {
@@ -29,10 +29,14 @@
   }
 
   &-shortlink {
+    font-size: $font-size--very-small;
     margin-top: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+    @include mq("tablet") {
+      font-size: $font-size;
+    }
     a {
       color: inherit;
       margin-left: 10px;
@@ -54,6 +58,8 @@
   @include mq("tablet") {
     padding: 50px 30px;
     margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
   }
 
   &-form {
@@ -68,7 +74,6 @@
     &-item {
       width: 100%;
       @include mq("tablet") {
-        width: auto;
       }
 
       & + & {

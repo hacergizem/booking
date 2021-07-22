@@ -85,9 +85,9 @@ body {
   padding-right: 10px;
   width: 100%;
 
-  &::placeholder-shown {
+  &::placeholder {
     // TODO
-    background-color: $color-navy;
+    color: $color-navy;
   }
 }
 
@@ -103,6 +103,7 @@ body {
 .form-item {
   position: relative;
   .icon {
+    pointer-events: none;
     position: absolute;
     left: 12px;
     top: 50%;

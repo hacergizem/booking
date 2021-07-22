@@ -377,7 +377,7 @@ body {
 .button {
   display: inline-flex;
   align-items: center;
-  height: 40px;
+  height: 44px;
   padding-left: 20px;
   padding-right: 20px;
   background-color: #01acee;
@@ -389,7 +389,7 @@ body {
     color: black;
     padding-left: 0;
     padding-right: 0;
-    width: 40px;
+    width: 44px;
     background-color: transparent; }
   .button-full {
     width: 100%;
@@ -405,20 +405,20 @@ body {
   border: 0;
   font-weight: bold;
   border-radius: 3px;
-  height: 40px; }
+  height: 44px; }
 
 .text {
-  min-height: 40px;
+  min-height: 44px;
   color: #083b87;
   padding-left: 10px;
   padding-right: 10px;
   width: 100%; }
-  .text::-moz-placeholder-shown {
-    background-color: #083b87; }
-  .text:-ms-input-placeholder-shown {
-    background-color: #083b87; }
-  .text::placeholder-shown {
-    background-color: #083b87; }
+  .text::-moz-placeholder {
+    color: #083b87; }
+  .text:-ms-input-placeholder {
+    color: #083b87; }
+  .text::placeholder {
+    color: #083b87; }
 
 .select {
   background-color: white;
@@ -430,6 +430,7 @@ body {
 .form-item {
   position: relative; }
   .form-item .icon {
+    pointer-events: none;
     position: absolute;
     left: 12px;
     top: 50%;
@@ -502,6 +503,7 @@ body {
       .Header-switch {
         display: none; } }
   .Header-menu {
+    z-index: 2;
     pointer-events: none;
     opacity: 0;
     transition: 0.5s;
@@ -548,7 +550,7 @@ body {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        height: 40px;
+        height: 44px;
         padding-left: 20px;
         padding-right: 20px; }
         .Header-menu-user a:hover {
@@ -577,7 +579,7 @@ body {
         border: 1px solid #e0e6f1;
         padding-left: 10px;
         padding-right: 10px;
-        height: 40px;
+        height: 44px;
         border-radius: 0; }
         .Header-menu-helper select:nth-child(1) {
           border-bottom-left-radius: 3px;
@@ -613,7 +615,7 @@ body {
   @media (min-width: 768px) {
     .Showcase {
       padding-top: 80px;
-      padding-bottom: 100px; } }
+      padding-bottom: 80px; } }
   .Showcase .container {
     display: flex;
     flex-direction: column; }
@@ -629,10 +631,15 @@ body {
       .Showcase-subtitle {
         font-size: 1.4em; } }
   .Showcase-shortlink {
+    font-size: 0.7em;
     margin-top: 60px;
     display: flex;
     align-items: center;
-    justify-content: center; }
+    justify-content: center;
+    /* Medium devices (desktops, 768px and up) */ }
+    @media (min-width: 768px) {
+      .Showcase-shortlink {
+        font-size: 16px; } }
     .Showcase-shortlink a {
       color: inherit;
       margin-left: 10px;
@@ -643,14 +650,16 @@ body {
 .Search {
   text-align: left;
   margin-top: 30px;
-  background-color: #FBBE00;
+  background-color: #fbbe00;
   padding: 20px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   /* Medium devices (desktops, 768px and up) */ }
   @media (min-width: 768px) {
     .Search {
       padding: 50px 30px;
-      margin-top: 50px; } }
+      margin-top: 50px;
+      margin-left: 100px;
+      margin-right: 100px; } }
   .Search-form {
     display: flex;
     position: relative;
@@ -662,9 +671,6 @@ body {
     .Search-form-item {
       width: 100%;
       /* Medium devices (desktops, 768px and up) */ }
-      @media (min-width: 768px) {
-        .Search-form-item {
-          width: auto; } }
       .Search-form-item + .Search-form-item {
         margin-top: 20px;
         /* Medium devices (desktops, 768px and up) */ }
@@ -682,7 +688,7 @@ body {
     @media (min-width: 768px) {
       .Search .for-work {
         position: absolute;
-        top: calc(40px + 20px);
+        top: calc(44px + 20px);
         right: 0; } }
     .Search .for-work .checkbox {
       margin-left: 10px; }

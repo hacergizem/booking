@@ -1,164 +1,170 @@
-body{
-    font-family: $font-family;
-    line-height: 1.4;
+body {
+  font-family: $font-family;
+  line-height: 1.4;
 }
 
-h1,h2,h3,h4,h5,h6{
-    line-height: 1.2;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
 }
 
-.container{
-    max-width: $max-width;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: $gutter;
-    padding-right: $gutter;
+.container {
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $gutter;
+  padding-right: $gutter;
 }
 
-a{
-    color: $color-navy;
+a {
+  color: $color-navy;
 }
 
-body{
-    font-size: 16px;
-    font-family: $font-family;
+body {
+  font-size: 16px;
+  font-family: $font-family;
 }
 
 .icon {
-    display: inline-block;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  height: $finger-size; // Inline elementler yüksekliği algılayamaz.
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: $color-blue;
+  color: white;
+  justify-content: center;
+  text-align: center;
+
+  &-icon {
+    justify-content: center;
+    color: black;
+    padding-left: 0;
+    padding-right: 0;
+    width: $finger-size;
+    background-color: transparent;
+  }
+
+  &-full {
+    width: 100%;
+    text-align: center;
+  }
+  &-navy {
+    color: white;
+    background-color: $color-navy;
+  }
+}
+
+.select,
+.button,
+.text {
+  font-family: inherit;
+  border: 0;
+  font-weight: bold;
+  border-radius: $border-radius;
+  height: $finger-size;
+}
+
+.text {
+  min-height: $finger-size;
+  color: $color-navy;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+
+  &::placeholder-shown {
+    // TODO
+    background-color: $color-navy;
+  }
+}
+
+.select {
+  //appearance: none;
+  background-color: white;
+  display: inline-block;
+  width: 100%;
+  padding-left: 40px;
+  color: $color-navy;
+}
+
+.form-item {
+  position: relative;
+  .icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    color: $color-navy;
+    transform: translateY(-50%);
+  }
+  .text {
+    padding-left: 40px;
+  }
+  .select {
+    padding-left: 40px;
+  }
+}
+
+.form-description {
+  margin-top: 5px;
+  font-size: $font-size-small;
+  @include mq("tablet") {
+    margin-top: 20px;
+  }
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  position: relative;
+  display: flex;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+
+  &:before {
+    content: "";
+    font-size: 18px;
     width: 1em;
     height: 1em;
-    stroke-width: 0;
-    stroke: currentColor;
-    fill: currentColor;
-}
-
-.button{
-    display: inline-flex;
-    align-items: center;
-    height: $finger-size; // Inline elementler yüksekliği algılayamaz.
-    padding-left: 20px;
-    padding-right: 20px;
-    background-color: $color-blue;
-    color: white;
-    justify-content: center;
-    text-align: center;
-
-    &-icon{
-        justify-content: center;
-        color: black;
-        padding-left: 0;
-        padding-right: 0;
-        width: $finger-size;
-        background-color: transparent;
-    }
-
-    &-full{
-        width: 100%;
-        text-align: center;
-    }
-    &-navy{
-        color: white;
-        background-color: $color-navy;
-    }
-}
-
-.select, .button, .text{
-    font-family: inherit;
-    border:0;
-    font-weight: bold;
-    border-radius: $border-radius;
-    height: $finger-size;
-}
-
-.text{
-    min-height: $finger-size;
-    color: $color-navy;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 100%;
-
-    &::placeholder-shown{ // TODO
-        background-color: $color-navy;
-    }
-}
-
-.select{
-    //appearance: none;
-    background-color: white;
     display: inline-block;
-    width: 100%;
-    padding-left: 40px;
-    color: $color-navy;
-}
+    border: 2px solid white;
+  }
 
-.form-item{
-    position: relative;
-    .icon{
-        position: absolute;
-        left: 12px;
-        top:50%;
-        color: $color-navy;
-        transform: translateY(-50%);
-    }
-    .text{
-        padding-left: 40px; 
-    }
-    .select{
-        padding-left: 40px;
-    }    
-}
+  .icon {
+    display: none;
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: 3px;
+    margin-top: -2px;
+    width: 20px;
+    height: 20px;
+  }
 
-.form-description{
-    margin-top: 5px;
-    font-size: $font-size-small;
-    @include mq("tablet"){
-        margin-top: 20px;
-    }
-}
-
-
-
-.form-checkbox{
-    display: flex;
-    align-items: center;
-}
-
-.checkbox{    
-    position: relative;
-    display: flex;
-
-    input{
-        position: absolute;
-        opacity: 0;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-    }
-
-    &:before{
-        content: "";
-        font-size: 18px;
-        width: 1em;
-        height: 1em;
-        display: inline-block;
-        border: 2px solid white;
-    }
-    
-    .icon{
-        display: none;
-        color: white;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        margin-left: 3px;
-        margin-top: -2px;
-        width: 20px;
-        height: 20px;
-    }   
-    
-    input:checked + .icon{
-        display: block;
-    }
+  input:checked + .icon {
+    display: block;
+  }
 }

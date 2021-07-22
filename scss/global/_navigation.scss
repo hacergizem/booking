@@ -1,14 +1,16 @@
-.Navigation{
-    background-color: $color-soft-blue;
-    height: 50px;
-    .container{
-        height: 100%;
-        display: flex;
-        align-items: center;
-        overflow-x: scroll;        
-    }
-    &-item{
-        margin-right: 10px;
-        font-size: $font-size-small;
-    }
+.Navigation {
+  background-color: $color-soft-blue;
+  height: 50px;
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+  }
+  &-item {
+    margin-right: 10px;
+    font-size: $font-size-small;
+  }
 }

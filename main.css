@@ -344,7 +344,12 @@ body {
   font-family: "Open Sans", sans-serif;
   line-height: 1.4; }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1.2; }
 
 .container {
@@ -393,7 +398,9 @@ body {
     color: white;
     background-color: #083b87; }
 
-.select, .button, .text {
+.select,
+.button,
+.text {
   font-family: inherit;
   border: 0;
   font-weight: bold;
@@ -587,7 +594,11 @@ body {
     height: 100%;
     display: flex;
     align-items: center;
-    overflow-x: scroll; }
+    -ms-overflow-style: none;
+    /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+    /* for Firefox */
+    overflow-y: scroll; }
   .Navigation-item {
     margin-right: 10px;
     font-size: 0.9em; }
@@ -596,7 +607,7 @@ body {
   color: white;
   padding-top: 30px;
   padding-bottom: 30px;
-  background: url(/img/showcase_back.jpg) no-repeat center center/cover;
+  background: url(./img/showcase_back.jpg) no-repeat center center/cover;
   text-align: center;
   /* Medium devices (desktops, 768px and up) */ }
   @media (min-width: 768px) {
@@ -617,6 +628,17 @@ body {
     @media (min-width: 768px) {
       .Showcase-subtitle {
         font-size: 1.4em; } }
+  .Showcase-shortlink {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .Showcase-shortlink a {
+      color: inherit;
+      margin-left: 10px;
+      margin-right: 10px; }
+      .Showcase-shortlink a:hover {
+        text-decoration: underline; }
 
 .Search {
   text-align: left;
